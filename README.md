@@ -22,7 +22,7 @@ python manage.py migrate
 
 python manage.py createsuperuser
 
-Username Jerry
+Username: Jerry
 Email address:jerry@gmail.com
 password: Jerry
 Password (again):Jerry
