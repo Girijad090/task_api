@@ -5,11 +5,13 @@ from rest_framework.response import Response
 from rest_framework.authtoken.serializers import  AuthTokenSerializer
 from knox.views import  LoginView as KnoxLoginView
 from knox.models import AuthToken
-from .serializers import UserSerializer, RegisterSerializer
+from .serializers import UserSerializer, RegisterSerializer,ContactSerializer
 from django.contrib.auth.models import User
 from .serializers import ChangePasswordSerializer, ContactSerializer
-from rest_framework.permissions import IsAuthenticated
+
 from .models import Contacts
+from rest_framework.authentication import BasicAuthentication
+from rest_framework.permissions import IsAuthenticated
 
 
 # Register API
@@ -70,3 +72,5 @@ class ChangePasswordView(generics.UpdateAPIView):
 class ContactModelViewSet(viewsets.ModelViewSet):
     queryset = Contacts.objects.all()
     serializer_class = ContactSerializer
+    # authentication_classes = [BasicAuthentication]
+    permission_classes=[IsAuthenticated]

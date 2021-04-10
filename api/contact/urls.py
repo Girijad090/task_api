@@ -18,4 +18,5 @@ urlpatterns = [
     path('api/change-password/', ChangePasswordView.as_view(), name='change-password'),
     path('api/password_reset/', include('django_rest_passwordreset.urls', namespace='password_reset')),
     path('', include(router.urls)),
+    path('auth/', include('rest_framework.urls',namespace='rest_framework'))
 ]
